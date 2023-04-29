@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'location_repository.dart';
+part of 'request_repository.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'location_repository.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _ILocationRepository implements ILocationRepository {
-  _ILocationRepository(
+class _LocationRepository implements LocationRepository {
+  _LocationRepository(
     this._dio, {
     this.baseUrl,
   }) {
@@ -21,7 +21,7 @@ class _ILocationRepository implements ILocationRepository {
   String? baseUrl;
 
   @override
-  Future<LocationModel> findLocationByAddress(
+  Future<RequestModel> findLocationByAddress(
     address,
     key,
   ) async {
@@ -30,7 +30,7 @@ class _ILocationRepository implements ILocationRepository {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<LocationModel>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<RequestModel>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -42,7 +42,7 @@ class _ILocationRepository implements ILocationRepository {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = LocationModel.fromJson(_result.data!);
+    final value = RequestModel.fromJson(_result.data!);
     return value;
   }
 
