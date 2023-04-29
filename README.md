@@ -1,2 +1,16 @@
-# visite-la
-VisiteLá is a mobile app designed to assist travelers in finding tourist attractions in a given city. By entering their location, users can access a list of nearby points of interest. With that in mind, we also offers a route calculation feature, providing directions from the user's location to a specific tourist attraction.
+# visite_la
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
