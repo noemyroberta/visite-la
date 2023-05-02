@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'src/home.dart';
 
 void main() {
@@ -14,6 +13,7 @@ class VisiteLaApp extends StatelessWidget {
     return MaterialApp(
       title: 'VisiteLá',
       theme: ThemeData(primarySwatch: Colors.blue),
+      debugShowCheckedModeBanner: false,
       home: const Home(),
     );
   }
