@@ -26,10 +26,15 @@ VisiteLá é um aplicativo móvel projetado para ajudar os turistas a explorar e
 ## Identidade Visual
 
 ![SplashScreen](assets/identity/splash screen.png)
+
 ![SplasScreen1](assets/identity/tela 1.png)
+
 ![SplasScreen2](assets/identity/tela 2.png)
+
 ![SplasScreen3](assets/identity/tela 3.png)
+
 ![MainMenu4](assets/identity/tela inicial.png)
+
 ![MainMenu5](assets/identity/3.png)
 ## Licença
 
