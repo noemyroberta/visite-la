@@ -8,9 +8,9 @@ part of 'geocode_reverse_model.dart';
 
 GeocodeReverseModel _$GeocodeReverseModelFromJson(Map<String, dynamic> json) =>
     GeocodeReverseModel(
-      plusCode: json['plusCode'] == null
+      plusCode: json['plus_code'] == null
           ? null
-          : PlusCode.fromJson(json['plusCode'] as Map<String, dynamic>),
+          : PlusCode.fromJson(json['plus_code'] as Map<String, dynamic>),
       results: (json['results'] as List<dynamic>?)
           ?.map((e) => Results.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -20,58 +20,58 @@ GeocodeReverseModel _$GeocodeReverseModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$GeocodeReverseModelToJson(
         GeocodeReverseModel instance) =>
     <String, dynamic>{
-      'plusCode': instance.plusCode,
+      'plus_code': instance.plusCode,
       'results': instance.results,
       'status': instance.status,
     };
 
 PlusCode _$PlusCodeFromJson(Map<String, dynamic> json) => PlusCode(
-      compoundCode: json['compoundCode'] as String?,
-      globalCode: json['globalCode'] as String?,
+      compoundCode: json['compound_code'] as String?,
+      globalCode: json['global_code'] as String?,
     );
 
 Map<String, dynamic> _$PlusCodeToJson(PlusCode instance) => <String, dynamic>{
-      'compoundCode': instance.compoundCode,
-      'globalCode': instance.globalCode,
+      'compound_code': instance.compoundCode,
+      'global_code': instance.globalCode,
     };
 
 Results _$ResultsFromJson(Map<String, dynamic> json) => Results(
-      addressComponents: (json['addressComponents'] as List<dynamic>?)
+      addressComponents: (json['address_components'] as List<dynamic>?)
           ?.map((e) => AddressComponents.fromJson(e as Map<String, dynamic>))
           .toList(),
-      formattedAddress: json['formattedAddress'] as String?,
+      formattedAddress: json['formatted_address'] as String?,
       geometry: json['geometry'] == null
           ? null
           : Geometry.fromJson(json['geometry'] as Map<String, dynamic>),
-      placeId: json['placeId'] as String?,
-      plusCode: json['plusCode'] == null
+      placeId: json['place_id'] as String?,
+      plusCode: json['plus_code'] == null
           ? null
-          : PlusCode.fromJson(json['plusCode'] as Map<String, dynamic>),
+          : PlusCode.fromJson(json['plus_code'] as Map<String, dynamic>),
       types:
           (json['types'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$ResultsToJson(Results instance) => <String, dynamic>{
-      'addressComponents': instance.addressComponents,
-      'formattedAddress': instance.formattedAddress,
+      'address_components': instance.addressComponents,
+      'formatted_address': instance.formattedAddress,
       'geometry': instance.geometry,
-      'placeId': instance.placeId,
-      'plusCode': instance.plusCode,
+      'place_id': instance.placeId,
+      'plus_code': instance.plusCode,
       'types': instance.types,
     };
 
 AddressComponents _$AddressComponentsFromJson(Map<String, dynamic> json) =>
     AddressComponents(
-      longName: json['longName'] as String?,
-      shortName: json['shortName'] as String?,
+      longName: json['long_name'] as String?,
+      shortName: json['short_name'] as String?,
       types:
           (json['types'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$AddressComponentsToJson(AddressComponents instance) =>
     <String, dynamic>{
-      'longName': instance.longName,
-      'shortName': instance.shortName,
+      'long_name': instance.longName,
+      'short_name': instance.shortName,
       'types': instance.types,
     };
 
@@ -82,7 +82,7 @@ Geometry _$GeometryFromJson(Map<String, dynamic> json) => Geometry(
       location: json['location'] == null
           ? null
           : Northeast.fromJson(json['location'] as Map<String, dynamic>),
-      locationType: json['locationType'] as String?,
+      locationType: json['location_type'] as String?,
       viewport: json['viewport'] == null
           ? null
           : Bounds.fromJson(json['viewport'] as Map<String, dynamic>),
@@ -91,7 +91,7 @@ Geometry _$GeometryFromJson(Map<String, dynamic> json) => Geometry(
 Map<String, dynamic> _$GeometryToJson(Geometry instance) => <String, dynamic>{
       'bounds': instance.bounds,
       'location': instance.location,
-      'locationType': instance.locationType,
+      'location_type': instance.locationType,
       'viewport': instance.viewport,
     };
 

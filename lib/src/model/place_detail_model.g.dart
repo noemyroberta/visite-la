@@ -1,79 +1,82 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'place_model.dart';
+part of 'place_detail_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-PlaceModel _$PlaceModelFromJson(Map<String, dynamic> json) => PlaceModel(
-      htmlAttributions: json['htmlAttributions'] as List<dynamic>?,
+PlaceDetailModel _$PlaceDetailModelFromJson(Map<String, dynamic> json) =>
+    PlaceDetailModel(
+      htmlAttributions: json['html_attributions'] as List<dynamic>?,
       result: json['result'] == null
           ? null
           : Result.fromJson(json['result'] as Map<String, dynamic>),
       status: json['status'] as String?,
     );
 
-Map<String, dynamic> _$PlaceModelToJson(PlaceModel instance) =>
+Map<String, dynamic> _$PlaceDetailModelToJson(PlaceDetailModel instance) =>
     <String, dynamic>{
-      'htmlAttributions': instance.htmlAttributions,
+      'html_attributions': instance.htmlAttributions,
       'result': instance.result,
       'status': instance.status,
     };
 
 Result _$ResultFromJson(Map<String, dynamic> json) => Result(
-      addressComponents: (json['addressComponents'] as List<dynamic>?)
+      addressComponents: (json['address_components'] as List<dynamic>?)
           ?.map((e) => AddressComponents.fromJson(e as Map<String, dynamic>))
           .toList(),
-      adrAddress: json['adrAddress'] as String?,
-      formattedAddress: json['formattedAddress'] as String?,
+      adrAddress: json['adr_address'] as String?,
+      formattedAddress: json['formatted_address'] as String?,
       geometry: json['geometry'] == null
           ? null
           : Geometry.fromJson(json['geometry'] as Map<String, dynamic>),
       icon: json['icon'] as String?,
-      iconBackgroundColor: json['iconBackgroundColor'] as String?,
-      iconMaskBaseUri: json['iconMaskBaseUri'] as String?,
+      iconBackgroundColor: json['icon_background_color'] as String?,
+      iconMaskBaseUri: json['icon_mask_base_uri'] as String?,
       name: json['name'] as String?,
       photos: (json['photos'] as List<dynamic>?)
           ?.map((e) => Photos.fromJson(e as Map<String, dynamic>))
           .toList(),
-      placeId: json['placeId'] as String?,
+      placeId: json['place_id'] as String?,
+      rating: json['rating'] as double?,
       reference: json['reference'] as String?,
       types:
           (json['types'] as List<dynamic>?)?.map((e) => e as String).toList(),
       url: json['url'] as String?,
-      utcOffset: json['utcOffset'] as int?,
+      utcOffset: json['utc_offset'] as int?,
     );
 
 Map<String, dynamic> _$ResultToJson(Result instance) => <String, dynamic>{
-      'addressComponents': instance.addressComponents,
-      'adrAddress': instance.adrAddress,
-      'formattedAddress': instance.formattedAddress,
+      'address_components': instance.addressComponents,
+      'adr_address': instance.adrAddress,
+      'formatted_address': instance.formattedAddress,
       'geometry': instance.geometry,
       'icon': instance.icon,
-      'iconBackgroundColor': instance.iconBackgroundColor,
-      'iconMaskBaseUri': instance.iconMaskBaseUri,
+      'icon_background_color': instance.iconBackgroundColor,
+      'icon_mask_base_uri': instance.iconMaskBaseUri,
       'name': instance.name,
       'photos': instance.photos,
-      'placeId': instance.placeId,
+      'place_id': instance.placeId,
+      'rating': instance.rating,
       'reference': instance.reference,
       'types': instance.types,
       'url': instance.url,
-      'utcOffset': instance.utcOffset,
+      'utc_offset': instance.utcOffset,
     };
 
 AddressComponents _$AddressComponentsFromJson(Map<String, dynamic> json) =>
     AddressComponents(
-      longName: json['longName'] as String?,
-      shortName: json['shortName'] as String?,
+      longName: json['long_name'] as String?,
+      shortName: json['short_name'] as String?,
       types:
           (json['types'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$AddressComponentsToJson(AddressComponents instance) =>
     <String, dynamic>{
-      'longName': instance.longName,
-      'shortName': instance.shortName,
+      'long_name': instance.longName,
+      'short_name': instance.shortName,
       'types': instance.types,
     };
 
@@ -117,16 +120,16 @@ Map<String, dynamic> _$ViewportToJson(Viewport instance) => <String, dynamic>{
 
 Photos _$PhotosFromJson(Map<String, dynamic> json) => Photos(
       height: json['height'] as int?,
-      htmlAttributions: (json['htmlAttributions'] as List<dynamic>?)
+      htmlAttributions: (json['html_attributions'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      photoReference: json['photoReference'] as String?,
+      photoReference: json['photo_reference'] as String?,
       width: json['width'] as int?,
     );
 
 Map<String, dynamic> _$PhotosToJson(Photos instance) => <String, dynamic>{
       'height': instance.height,
-      'htmlAttributions': instance.htmlAttributions,
-      'photoReference': instance.photoReference,
+      'html_attributions': instance.htmlAttributions,
+      'photo_reference': instance.photoReference,
       'width': instance.width,
     };

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'src/home.dart';
+import 'src/home_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const VisiteLaApp());
 }
 
@@ -14,7 +15,7 @@ class VisiteLaApp extends StatelessWidget {
       title: 'VisiteLá',
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
-      home: const Home(),
+      home: const HomePage(),
     );
   }
 }

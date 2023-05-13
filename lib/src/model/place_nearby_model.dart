@@ -1,67 +1,61 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'place_model.g.dart';
+
+part 'place_nearby_model.g.dart';
 
 @JsonSerializable()
-class PlaceModel {
+class PlaceNearbyModel {
   List<dynamic>? htmlAttributions;
-  Result? result;
+  List<Results>? results;
   String? status;
 
-  PlaceModel({this.htmlAttributions, this.result, this.status});
+  PlaceNearbyModel({this.htmlAttributions, this.results, this.status});
 
-  factory PlaceModel.fromJson(Map<String, dynamic> json) => _$PlaceModelFromJson(json);
-  Map<String, dynamic> toJson() => _$PlaceModelToJson(this);
+  factory PlaceNearbyModel.fromJson(Map<String, dynamic> json) => _$PlaceNearbyModelFromJson(json);
+  Map<String, dynamic> toJson() => _$PlaceNearbyModelToJson(this);
 }
 
 @JsonSerializable()
-class Result {
-  List<AddressComponents>? addressComponents;
-  String? adrAddress;
-  String? formattedAddress;
+class Results {
+  String? businessStatus;
   Geometry? geometry;
   String? icon;
   String? iconBackgroundColor;
   String? iconMaskBaseUri;
   String? name;
+  bool? permanentlyClosed;
   List<Photos>? photos;
   String? placeId;
+  PlusCode? plusCode;
+  double? rating;
   String? reference;
+  String? scope;
   List<String>? types;
-  String? url;
-  int? utcOffset;
+  int? userRatingsTotal;
+  String? vicinity;
+  OpeningHours? openingHours;
 
-  Result(
-      {this.addressComponents,
-        this.adrAddress,
-        this.formattedAddress,
+  Results(
+      {this.businessStatus,
         this.geometry,
         this.icon,
         this.iconBackgroundColor,
         this.iconMaskBaseUri,
         this.name,
+        this.permanentlyClosed,
         this.photos,
         this.placeId,
+        this.plusCode,
+        this.rating,
         this.reference,
+        this.scope,
         this.types,
-        this.url,
-        this.utcOffset});
+        this.userRatingsTotal,
+        this.vicinity,
+        this.openingHours});
 
-  factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
-  Map<String, dynamic> toJson() => _$ResultToJson(this);
+  factory Results.fromJson(Map<String, dynamic> json) => _$ResultsFromJson(json);
+  Map<String, dynamic> toJson() => _$ResultsToJson(this);
 }
-
-@JsonSerializable()
-class AddressComponents {
-  String? longName;
-  String? shortName;
-  List<String>? types;
-
-  AddressComponents({this.longName, this.shortName, this.types});
-
-  factory AddressComponents.fromJson(Map<String, dynamic> json) => _$AddressComponentsFromJson(json);
-  Map<String, dynamic> toJson() => _$AddressComponentsToJson(this);
-}
-
 @JsonSerializable()
 class Geometry {
   Location? location;
@@ -72,7 +66,6 @@ class Geometry {
   factory Geometry.fromJson(Map<String, dynamic> json) => _$GeometryFromJson(json);
   Map<String, dynamic> toJson() => _$GeometryToJson(this);
 }
-
 @JsonSerializable()
 class Location {
   double? lat;
@@ -83,7 +76,6 @@ class Location {
   factory Location.fromJson(Map<String, dynamic> json) => _$LocationFromJson(json);
   Map<String, dynamic> toJson() => _$LocationToJson(this);
 }
-
 @JsonSerializable()
 class Viewport {
   Location? northeast;
@@ -94,7 +86,6 @@ class Viewport {
   factory Viewport.fromJson(Map<String, dynamic> json) => _$ViewportFromJson(json);
   Map<String, dynamic> toJson() => _$ViewportToJson(this);
 }
-
 @JsonSerializable()
 class Photos {
   int? height;
@@ -107,3 +98,23 @@ class Photos {
   factory Photos.fromJson(Map<String, dynamic> json) => _$PhotosFromJson(json);
   Map<String, dynamic> toJson() => _$PhotosToJson(this);
 }
+@JsonSerializable()
+class PlusCode {
+  String? compoundCode;
+  String? globalCode;
+
+  PlusCode({this.compoundCode, this.globalCode});
+
+  factory PlusCode.fromJson(Map<String, dynamic> json) => _$PlusCodeFromJson(json);
+  Map<String, dynamic> toJson() => _$PlusCodeToJson(this);
+}
+@JsonSerializable()
+class OpeningHours {
+  bool? openNow;
+
+  OpeningHours({this.openNow});
+
+  factory OpeningHours.fromJson(Map<String, dynamic> json) => _$OpeningHoursFromJson(json);
+  Map<String, dynamic> toJson() => _$OpeningHoursToJson(this);
+}
+

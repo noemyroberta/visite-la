@@ -89,8 +89,8 @@ class _LocationRepository implements LocationRepository {
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _PlaceRepository implements PlaceRepository {
-  _PlaceRepository(
+class _PlaceDetailsRepository implements PlaceDetailsRepository {
+  _PlaceDetailsRepository(
     this._dio, {
     this.baseUrl,
   }) {
@@ -102,7 +102,7 @@ class _PlaceRepository implements PlaceRepository {
   String? baseUrl;
 
   @override
-  Future<PlaceModel> findTouristAttractionsByLocation(
+  Future<PlaceDetailModel> findDetailsByPlaceId(
     placeId,
     key,
   ) async {
@@ -111,20 +111,74 @@ class _PlaceRepository implements PlaceRepository {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<PlaceModel>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<PlaceDetailModel>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'place_id={}&type=tourist_attraction&key={}',
+              'place_id=${placeId}&type=tourist_attraction&key=${key}',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    print(_result.data);
-    final value = PlaceModel.fromJson(_result.data!);
+    final value = PlaceDetailModel.fromJson(_result.data!);
+    return value;
+  }
+
+  RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
+    if (T != dynamic &&
+        !(requestOptions.responseType == ResponseType.bytes ||
+            requestOptions.responseType == ResponseType.stream)) {
+      if (T == String) {
+        requestOptions.responseType = ResponseType.plain;
+      } else {
+        requestOptions.responseType = ResponseType.json;
+      }
+    }
+    return requestOptions;
+  }
+}
+
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
+
+class _PlaceNearbyRepository implements PlaceNearbyRepository {
+  _PlaceNearbyRepository(
+    this._dio, {
+    this.baseUrl,
+  }) {
+    baseUrl ??= 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?';
+  }
+
+  final Dio _dio;
+
+  String? baseUrl;
+
+  @override
+  Future<PlaceNearbyModel> findTouristAttractionsByLocation(
+    lat,
+    lng,
+    key,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<PlaceNearbyModel>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'location=${lat},${lng}&radius=30000&type=tourist_attraction&key=${key}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = PlaceNearbyModel.fromJson(_result.data!);
     return value;
   }
 
